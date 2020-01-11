@@ -1,0 +1,39 @@
+[
+    {
+        "outputFile": "D:\\Java projects\\Robotic Arm\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 59,
+                    "endOffset": 110
+                },
+                "from": {
+                    "file": "D:\\Java projects\\Robotic Arm\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 61,
+                        "endColumn": 59,
+                        "endOffset": 116
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 115,
+                    "endLine": 4,
+                    "endColumn": 9,
+                    "endOffset": 189
+                },
+                "from": {
+                    "file": "D:\\Java projects\\Robotic Arm\\app\\src\\main\\res\\values\\styles.xml"
+                }
+            }
+        ]
+    }
+]

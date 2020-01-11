@@ -1,0 +1,4 @@
+#Wed Oct 10 13:02:09 MMT 2018
+base.0=D\:\\Java projects\\Robotic Arm\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=D\:\\Java projects\\Robotic Arm\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main\\classes.dex

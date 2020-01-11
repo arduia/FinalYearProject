@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "D:\\Java projects\\Robotic Arm\\app\\build\\intermediates\\res\\merged\\release\\layout\\settings.xml",
+        "source": "D:\\Java projects\\Robotic Arm\\app\\src\\main\\res\\layout\\settings.xml"
+    },
+    {
+        "merged": "D:\\Java projects\\Robotic Arm\\app\\build\\intermediates\\res\\merged\\release\\layout\\main.xml",
+        "source": "D:\\Java projects\\Robotic Arm\\app\\src\\main\\res\\layout\\main.xml"
+    },
+    {
+        "merged": "D:\\Java projects\\Robotic Arm\\app\\build\\intermediates\\res\\merged\\release\\layout\\choosedevice.xml",
+        "source": "D:\\Java projects\\Robotic Arm\\app\\src\\main\\res\\layout\\choosedevice.xml"
+    }
+]

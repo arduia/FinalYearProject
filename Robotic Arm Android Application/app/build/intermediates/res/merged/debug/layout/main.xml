@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:text="Shoulder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/degvalue1"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/background_dark" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deg1"
+                android:layout_margin="1dp"
+                android:scrollbars="horizontal"
+                android:scrollbarAlwaysDrawHorizontalTrack="false" />
+
+            <TextView
+                android:text="Base"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/degvalue2"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/background_dark" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deg2"
+                android:layout_margin="1dp"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:text="Elbow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/degvalue3"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/background_dark" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deg3"
+                android:layout_margin="1dp"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:text="Gripper patch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/degvalue4"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/background_dark" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deg4"
+                android:layout_margin="1dp"
+                android:scrollbars="vertical" />
+
+            <TextView
+                android:text="Gripper Spin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/degvalue5"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/background_dark" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deg5"
+                android:layout_margin="1dp"
+                android:scrollbars="horizontal" />
+
+            <TextView
+                android:text="Gripper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/degvalue6"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/background_dark" />
+
+            <SeekBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deg6"
+                android:layout_margin="1dp" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                </LinearLayout>
+            </ScrollView>
+
+            <TextView
+                android:text="LOGs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/logsout"
+                android:textColor="@android:color/background_dark" />
+
+            <Button
+                android:text="SEND"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/senddata"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
