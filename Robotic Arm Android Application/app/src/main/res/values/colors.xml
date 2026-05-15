@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1565C0</color>
+    <color name="primary_dark">#003C8F</color>
+    <color name="accent">#26C6DA</color>
+    <color name="white">#FFFFFF</color>
+    <color name="background">#F0F4F8</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="text_secondary">#757575</color>
+    <color name="divider">#E0E0E0</color>
+    <color name="status_connected">#2E7D32</color>
+    <color name="status_disconnected">#78909C</color>
+    <color name="log_background">#1E272C</color>
+    <color name="log_text">#80CBC4</color>
+    <color name="log_header">#546E7A</color>
+</resources>
