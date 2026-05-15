@@ -182,7 +182,7 @@ fun RoboticArmApp(viewModel: RoboticArmViewModel, btAdapter: BluetoothAdapter?) 
 }
 
 @Composable
-private fun ConnectionChip(isConnected: Boolean, connectedName: String) {
+internal fun ConnectionChip(isConnected: Boolean, connectedName: String) {
     Surface(
         shape = RoundedCornerShape(8.dp),
         color = if (isConnected) ConnectedColor else DisconnectedColor
@@ -197,7 +197,7 @@ private fun ConnectionChip(isConnected: Boolean, connectedName: String) {
 }
 
 @Composable
-private fun JointCard(name: String, value: Float, onValueChange: (Float) -> Unit) {
+internal fun JointCard(name: String, value: Float, onValueChange: (Float) -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -237,7 +237,7 @@ private fun JointCard(name: String, value: Float, onValueChange: (Float) -> Unit
 }
 
 @Composable
-private fun LogCard(logText: String) {
+internal fun LogCard(logText: String) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(12.dp),
@@ -265,7 +265,7 @@ private fun LogCard(logText: String) {
 }
 
 @Composable
-private fun DeviceDialog(
+internal fun DeviceDialog(
     devices: List<Pair<String, String>>,
     onDismiss: () -> Unit,
     onSelect: (String, String) -> Unit
@@ -305,7 +305,7 @@ private fun DeviceDialog(
 }
 
 @Composable
-private fun SettingsDialog(
+internal fun SettingsDialog(
     initial: SettingsState,
     onDismiss: () -> Unit,
     onSave: (SettingsState) -> Unit
