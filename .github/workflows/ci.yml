@@ -1,0 +1,112 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - master
+      - 'claude/**'
+  pull_request:
+    branches:
+      - master
+
+# Cancel in-progress runs for the same branch when a new push arrives
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    name: Build · Unit Tests · Snapshots
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle           # caches ~/.gradle/caches and ~/.gradle/wrapper
+
+      - name: Make gradlew executable
+        working-directory: "Robotic Arm Android Application"
+        run: chmod +x gradlew
+
+      # ── Build ──────────────────────────────────────────────────────────────
+      - name: Build debug APK
+        working-directory: "Robotic Arm Android Application"
+        run: ./gradlew assembleDebug --stacktrace
+
+      # ── Unit tests (ViewModel only — fast, no rendering) ──────────────────
+      - name: Run unit tests
+        working-directory: "Robotic Arm Android Application"
+        run: >
+          ./gradlew testDebugUnitTest
+          --tests "*RoboticArmViewModelTest"
+          --stacktrace
+
+      # ── Snapshot tests (Paparazzi — renders Compose to PNG on JVM) ────────
+      - name: Record Paparazzi snapshots
+        working-directory: "Robotic Arm Android Application"
+        run: ./gradlew recordPaparazziDebug --stacktrace
+
+      # ── Artifacts ─────────────────────────────────────────────────────────
+      - name: Upload debug APK
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk
+          path: "Robotic Arm Android Application/app/build/outputs/apk/debug/app-debug.apk"
+          retention-days: 14
+
+      - name: Upload unit test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-test-report
+          path: "Robotic Arm Android Application/app/build/reports/tests/testDebugUnitTest/"
+          retention-days: 14
+
+      - name: Upload Paparazzi snapshot images
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paparazzi-snapshots
+          path: "Robotic Arm Android Application/app/src/test/snapshots/images/"
+          retention-days: 14
+
+  # ── Snapshot diff on PRs (verifies nothing regressed) ─────────────────────
+  snapshot-verify:
+    name: Verify Paparazzi snapshots
+    runs-on: ubuntu-latest
+    # Only run when golden images have been committed to the repo
+    if: github.event_name == 'pull_request' && hashFiles('Robotic Arm Android Application/app/src/test/snapshots/images/**') != ''
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Make gradlew executable
+        working-directory: "Robotic Arm Android Application"
+        run: chmod +x gradlew
+
+      - name: Verify Paparazzi snapshots
+        working-directory: "Robotic Arm Android Application"
+        run: ./gradlew verifyPaparazziDebug --stacktrace
+
+      - name: Upload diff images on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paparazzi-diffs
+          path: "Robotic Arm Android Application/app/build/paparazzi/failures/"
+          retention-days: 7
